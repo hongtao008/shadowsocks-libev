@@ -1,7 +1,7 @@
 /*
  * acl.h - Define the ACL interface
  *
- * Copyright (C) 2013 - 2016, Max Lv <max.c.lv@gmail.com>
+ * Copyright (C) 2013 - 2017, Max Lv <max.c.lv@gmail.com>
  *
  * This file is part of the shadowsocks-libev.
  *
@@ -43,7 +43,9 @@ int acl_remove_ip(const char *ip);
 int get_acl_mode(void);
 
 void init_block_list();
-int check_block_list(char *addr, int err_level);
+void free_block_list();
+int check_block_list(char *addr);
+int update_block_list(char *addr, int err_level);
 int remove_from_block_list(char *addr);
 
 int outbound_block_match_host(const char *host);
